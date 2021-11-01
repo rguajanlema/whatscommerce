@@ -11,7 +11,7 @@ export default function RutasNoAutenticadas(){
     return(
         <NavigationContainer>
             <Stack.Navigator initialRouteName="login"
-            screenOptions={{ headerShow: false }}
+            screenOptions={{ headerShown: false }}
             >
                 <Stack.Screen
                 component = {Login} name="login"

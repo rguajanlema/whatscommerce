@@ -1,8 +1,8 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/native";
 
-import ConfirmarNumero from '../Pantallas/Cuenta/ConfirmarNumero';
-import EnviarConfirmacion from '../Pantallas/Cuenta/EnviarConfirmacion';
+import ConfirmarNumero from "../Pantallas/Cuenta/ConfirmarNumero";
+import EnviarConfirmacion from "../Pantallas/Cuenta/EnviarConfirmacion";
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ export default function CuentaStack()
             options={{
                 title: "Confirma tu Numero de telefono",
                 headerStyle: { backgroundColor: "#128c7E"},
-                headerTinColor: "#fff",
+                headerTintColor: "#fff",
             }}
             />
             <Stack.Screen
@@ -25,9 +25,9 @@ export default function CuentaStack()
             options={{
                 title: "Confirma Numero",
                 headerStyle: { backgroundColor: "#128c7E"},
-                headerTinColor: "#fff",
+                headerTintColor: "#fff",
             }}
             />
         </Stack.Navigator>
-    )
+    );
 }

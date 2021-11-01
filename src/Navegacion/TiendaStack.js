@@ -8,51 +8,53 @@ import Contacto from '../Pantallas/Tienda/Contacto';
 import AddProducto from '../Pantallas/Tienda/AddProducto';
 
 //pila de navegacion
-const Stack= createStackNavigator();
+const Stack = createStackNavigator();
 
-export default function TiendaStack()
-{
-    return(
+export default function TiendaStack() {
+    return (
         <Stack.Navigator>
             <Stack.Screen
-            component={Tienda}
-            name="tienda"
-            options={{ headerShow: false}}
+                component={Tienda}
+                name="tienda"
+                options={{ headerShown: false }}
             />
             <Stack.Screen
-            component={AddProducto}
-            name="addProducto"
-            options={{ title: "Agregar Nuevo Producto",
-            headerStyle: {backgroundColor: "#128C7E"},
-            headerTinColor: "#fff"
-        }}
+                component={AddProducto}
+                name="add-product"
+                options={{
+                    title: "Agregar Nuevo Producto",
+                    headerStyle: { backgroundColor: "#128C7E" },
+                    headerTintColor: "#fff"
+                }}
             />
             <Stack.Screen
-            component={Detalle}
-            name="detalle"
-            options={{ 
-                headerTransparent: true, 
-                headerTinColor: "#128C7E",
-                title: "",
-            }}
+                component={Detalle}
+                name="detalle"
+                options={{
+                    headerTransparent: true,
+                    headerTintColor: "#128C7E",
+                    title: "",
+                }}
             />
             <Stack.Screen
-            component={MensajesList}
-            name="mensajes"
-            options={{ title: "Agregar Nuevo Producto",
-            headerStyle: {backgroundColor: "#128C7E"},
-            headerTinColor: "#fff"
-        }}
+                component={MensajesList}
+                name="mensajes"
+                options={{
+                    title: "mensajes",
+                    headerStyle: { backgroundColor: "#128C7E" },
+                    headerTintColor: "#fff"
+                }}
             />
             <Stack.Screen
-            component={Contacto}
-            name="contacto"
-            options={{ title: "Agregar Nuevo Producto",
-            headerStyle: {backgroundColor: "#128C7E"},
-            headerTinColor: "#fff"
-        }}
+                component={Contacto}
+                name="contacto"
+                options={{
+                    title: "contacto",
+                    headerStyle: { backgroundColor: "#128C7E" },
+                    headerTintColor: "#fff"
+                }}
             />
-            
+
         </Stack.Navigator>
     );
 }

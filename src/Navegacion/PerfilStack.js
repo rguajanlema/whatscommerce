@@ -1,7 +1,7 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Perfil from '../Pantallas/Perfil/Perfil';
+import Perfil from "../Pantallas/Perfil/Perfil";
 
 const Stack = createStackNavigator();
 
@@ -12,7 +12,7 @@ export default function PerfilStack()
             <Stack.Screen
             component = {Perfil}
             name="perfil"
-            options={{ headerShow: false}}
+            options={{ headerShown: false}}
             />
         </Stack.Navigator>
     );

@@ -4,9 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import RutasAutenticadas from './src/Navegacion/RutasAutenticadas';
 
 export default function App() {
-  return (
-    <RutasAutenticadas/>
-  );
+  return <RutasAutenticadas/>;
 }
 
 const styles = StyleSheet.create({
