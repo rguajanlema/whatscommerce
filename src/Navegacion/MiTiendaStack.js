@@ -11,7 +11,8 @@ export default function MiTiendaStack()
     return(
         <Stack.Navigator
         screenOptions={{
-            headerStyle:{ backgroundColor:"#128C7E", headerTintColor: "#fff"},
+            headerStyle:{ backgroundColor:"#128C7E"},
+            headerTintColor: "#fff"
         }}
         >
             <Stack.Screen 
