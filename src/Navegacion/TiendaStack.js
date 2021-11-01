@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Tienda from '../Pantallas/Tienda/Tienda';
 import MensajesList from '../Pantallas/Tienda/MensajesList';
@@ -54,5 +54,5 @@ export default function TiendaStack()
             />
             
         </Stack.Navigator>
-    )
+    );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import MiTienda from '../Pantallas/MiTienda/MiTienda';
 import EditarProducto from '../Pantallas/MiTienda/EditarProducto';
