@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "whatscommerce",
+    "slug": "whatscommerce",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "whatscommerce"
+}
