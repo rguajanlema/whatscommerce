@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Icon, Input, Button } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { validaremail } from "../Utils/Utils";
-import { isEmpty } from "lodash";
+import { isEmpty, size } from "lodash";
 //import * as firebase from "firebase";
 
 export default function RegisterForm(props) {
@@ -13,6 +13,18 @@ export default function RegisterForm(props) {
     const [repetirpassword, setrepetirpassword] = useState("");
     const [show, setshow] = useState(true);
     const navigation = useNavigation();
+
+    function createcuenta(){
+        if(isEmpty(email) || isEmpty(password) || isEmpty(repetirpassword)){
+            toastRef.current.show("Todos los campos son obligatorios");
+        }else if(!validaremail(email)){
+            toastRef.current.show("Correo no es valido");
+        }else if(password!== repetirpassword){
+            toastRef.current.show("Las contrasenas tienen que ser iguales");
+        }else if(size(password)<6){
+            toastRef.current.show("La contrasenia debe tener almenos 6 caracteres");
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -81,7 +93,7 @@ export default function RegisterForm(props) {
             <Button title="CREAR CUENTA"
                 containerStyle={styles.btnentrar}
                 buttonStyle={{ backgroundColor: "#25d366" }}
-                onPress={() => console.log("Crear cuenta")}
+                onPress={() => createcuenta()}
             />
             <Button title="INICIAR SESION"
                 containerStyle={styles.btnentrar}
