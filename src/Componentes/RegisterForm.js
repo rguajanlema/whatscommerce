@@ -6,6 +6,9 @@ import { validaremail } from "../Utils/Utils";
 import { isEmpty, size } from "lodash";
 //import * as firebase from "firebase";
 import Loading from "../Componentes/Loading";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth =getAuth();
 
 export default function RegisterForm(props) {
     const { toastRef } = props;
@@ -14,6 +17,7 @@ export default function RegisterForm(props) {
     const [repetirpassword, setrepetirpassword] = useState("");
     const [show, setshow] = useState(true);
     const navigation = useNavigation();
+    const [loading,setLoading] = useState(false);
 
     function createcuenta() {
         if (isEmpty(email) || isEmpty(password) || isEmpty(repetirpassword)) {
@@ -24,6 +28,18 @@ export default function RegisterForm(props) {
             toastRef.current.show("Las contrasenas tienen que ser iguales");
         } else if (size(password) < 6) {
             toastRef.current.show("La contrasenia debe tener almenos 6 caracteres");
+        } else{
+            setLoading(true);
+
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((response)=>{
+                toastRef.current.show("Se ha creado el usuario correctamente");
+                setLoading(false);
+            })
+            .catch((err)=>{
+                setLoading(false);
+                toastRef.current.show("Ha ocurrido un error o puede que este usuario este registrado");
+            });
         }
     }
 
@@ -101,7 +117,7 @@ export default function RegisterForm(props) {
                 buttonStyle={{ backgroundColor: "#128C7E" }}
                 onPress={() => navigation.goBack()}
             />
-            <Loading isVisible={false} text="Hola soy el loading"/>
+            <Loading isVisible={loading} text="Favor de esperar"/>
         </View>
     );
 }
