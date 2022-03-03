@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { validaremail } from "../Utils/Utils";
 import { isEmpty, size } from "lodash";
 //import * as firebase from "firebase";
+import Loading from "../Componentes/Loading";
 
 export default function RegisterForm(props) {
     const { toastRef } = props;
@@ -14,14 +15,14 @@ export default function RegisterForm(props) {
     const [show, setshow] = useState(true);
     const navigation = useNavigation();
 
-    function createcuenta(){
-        if(isEmpty(email) || isEmpty(password) || isEmpty(repetirpassword)){
+    function createcuenta() {
+        if (isEmpty(email) || isEmpty(password) || isEmpty(repetirpassword)) {
             toastRef.current.show("Todos los campos son obligatorios");
-        }else if(!validaremail(email)){
+        } else if (!validaremail(email)) {
             toastRef.current.show("Correo no es valido");
-        }else if(password!== repetirpassword){
+        } else if (password !== repetirpassword) {
             toastRef.current.show("Las contrasenas tienen que ser iguales");
-        }else if(size(password)<6){
+        } else if (size(password) < 6) {
             toastRef.current.show("La contrasenia debe tener almenos 6 caracteres");
         }
     }
@@ -100,6 +101,7 @@ export default function RegisterForm(props) {
                 buttonStyle={{ backgroundColor: "#128C7E" }}
                 onPress={() => navigation.goBack()}
             />
+            <Loading isVisible={false} text="Hola soy el loading"/>
         </View>
     );
 }
