@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStackNavigator } from "@react-navigation/native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
 
 import ConfirmarNumero from "../Pantallas/Cuenta/ConfirmarNumero";
 import EnviarConfirmacion from "../Pantallas/Cuenta/EnviarConfirmacion";
@@ -9,6 +10,7 @@ const Stack = createStackNavigator();
 export default function CuentaStack()
 {
     return(
+        <NavigationContainer>
         <Stack.Navigator>
             <Stack.Screen
             component={EnviarConfirmacion}
@@ -29,5 +31,6 @@ export default function CuentaStack()
             }}
             />
         </Stack.Navigator>
+        </NavigationContainer>
     );
 }
