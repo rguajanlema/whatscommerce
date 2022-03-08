@@ -5,30 +5,12 @@ import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, s
 
 const auth =getAuth();
 
-/*export function validarsesion() {
-
-    const [currentUser, setCurrentUser] = useState();
-
-    useEffect(() => {
-        const unsub = onAuthStateChanged(auth, user => {
-            setCurrentUser(user);
-            if(user){
-                alert("usuario logueado");
-            }else{
-                alert("no ha iniciado sesion");
-            }
-        });
-        return unsub;
-    },[])
-
-    return currentUser;
-};*/
-export const validarsesion =(setvalidadseseion)=>{
+export const validarsesion =(setvalidarseseion)=>{
     onAuthStateChanged(auth,(user)=>{
         if(user){
-            setvalidadseseion(true);
+            setvalidarseseion(true);
         }else{
-            setvalidadseseion(false);
+            setvalidarseseion(false);
         }
     });
 };

@@ -1,11 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { YellowBox } from "react-native-web";
 import Loading from "./src/Componentes/Loading";
-//import RutasAutenticadas from "./src/Navegacion/RutasAutenticadas";
 import RutasNoAutenticadas from "./src/Navegacion/RutasNoAutenticadas";
 import SwitchNavigator from "./src/Navegacion/SwitchNavigator";
 import { validarsesion } from "./src/Utils/Acciones";
+
+YellowBox.ignoreWarnings(["Animated"]);
 
 export default function App() {
   const [user, setuser] = useState(false);
