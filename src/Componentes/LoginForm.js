@@ -16,10 +16,10 @@ const Stack = createStackNavigator();
 export default function LoginForm(props) {
 
     const { toastRef } = props;
-
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [show, setshow] = useState(true);
+    const [loading, setloading] = useState(false);
 
     const navigation = useNavigation();
 
@@ -32,11 +32,14 @@ export default function LoginForm(props) {
         } else if (!validaremail(email)) {
             toastRef.current.show("Ingrese un correo valido")
         }else{
+            setloading(true);
             signInWithEmailAndPassword(auth, email, password).then(()=>{
-                alert("Todo bien");
+                setloading(false);
+                toastRef.current.show("Ha iniciado sesion exitosamente");
+                console.log(auth.currentUser);
             }).catch((err)=>{
-                alert("error");
-                toastRef.current.show("Email o contrasenia incorrecta");
+                setloading(false);
+                toastRef.current.show("Ha ocurrido un error al iniciar sesion");
             });
         }
     };

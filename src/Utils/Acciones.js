@@ -22,5 +22,8 @@ export function validarsesion() {
     },[])
 
     return currentUser;
-
 };
+
+export const cerrarsesion = () => {
+    signOut(auth);
+}
