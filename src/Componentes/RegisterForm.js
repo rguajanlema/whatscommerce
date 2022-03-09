@@ -8,6 +8,7 @@ import { isEmpty, size } from "lodash";
 import Loading from "../Componentes/Loading";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
+
 const auth =getAuth();
 
 export default function RegisterForm(props) {
