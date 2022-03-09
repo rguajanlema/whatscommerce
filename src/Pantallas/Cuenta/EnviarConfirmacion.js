@@ -9,6 +9,7 @@ export default function EnviarConfirmacion() {
 
   const [country, setcountry] = useState("PA");
   const [callingCode,setcallingCode] = useState("507");
+  const [phone,setphone] = useState("");
 
   return (
     <View style={styles.container}>
@@ -44,7 +45,20 @@ export default function EnviarConfirmacion() {
                 setcallingCode(...country.callingCode);
               }}
             />
+            <Text style={{color:"#fff"}}> | </Text>
+            <TextInput
+            placeholder="Numero de Whatsapp"
+            style={styles.input}
+            placeholderTextColor="#fff"
+            onChangeText={(text)=>setphone(text)}
+            value={phone}
+            />
           </View>
+          <Button
+          title="Confirmar Numero"
+          buttonStyle={{backgroundColor:"#25d366", marginHorizontal:20}}
+          containerStyle={{marginVertical: 20 }}
+          />
         </View>
       </View>
     </View>
@@ -90,4 +104,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "rgba(37,211,106,0.6)",
   },
+  input:{
+    width: "80%",
+    height: 50,
+    marginLeft: 5,
+
+  }
 });
