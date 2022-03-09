@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { firebaseapp } from "./Firebase";
-//import * as firebase from "firebase";
+import { firebaseApp } from "./Firebase";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
-const auth =getAuth();
+const auth = getAuth();
 
-export const validarsesion =(setvalidarseseion)=>{
+export const validarsesion =(setvalidarsesion)=>{
     onAuthStateChanged(auth,(user)=>{
         if(user){
-            setvalidarseseion(true);
+            setvalidarsesion(true);
         }else{
-            setvalidarseseion(false);
+            setvalidarsesion(false);
         }
     });
 };
