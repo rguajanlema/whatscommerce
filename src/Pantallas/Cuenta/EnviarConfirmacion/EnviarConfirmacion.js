@@ -4,6 +4,7 @@ import { Button, Icon } from "react-native-elements";
 import CountryPicket from "react-native-country-picker-modal";
 import { useNavigation } from "@react-navigation/native";
 import { isEmpty } from "lodash";
+import FirebaseRecaptcha from "../../../Utils/FirebaseRecapcha";
 
 import { styles } from "./EnviarConfirmacion.styles";
 
@@ -11,6 +12,8 @@ export function EnviarConfirmacion() {
   const [country, setcountry] = useState("PA");
   const [callingCode, setcallingCode] = useState("507");
   const [phone, setphone] = useState("");
+  const recaptchaVerifier = useRef();
+  const inputphone = useRef();
 
   return (
     <View style={styles.container}>
@@ -62,6 +65,7 @@ export function EnviarConfirmacion() {
           />
         </View>
       </View>
+      <FirebaseRecaptcha referencia={recaptchaVerifier} />
     </View>
   );
 }
