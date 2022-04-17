@@ -1,13 +1,13 @@
 //import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-//import { YellowBox } from "react-native-web";
+import { YellowBox } from "react-native-web";
 import Loading from "./src/Componentes/Loading";
 import RutasNoAutenticadas from "./src/Navegacion/RutasNoAutenticadas";
 import SwitchNavigator from "./src/Navegacion/SwitchNavigator";
 import { validarsesion } from "./src/Utils/Acciones";
 
-//YellowBox.ignoreWarnings(["Animated"]);
+YellowBox.ignoreWarnings(["Animated"]);
 
 export default function App() {
   const [user, setUser] = useState(false);
@@ -18,6 +18,7 @@ export default function App() {
     validarsesion(setUser);
     setloading(false);
   }, []);
+
   if (loading) {
     return <Loading isVisible={loading} text="Cargando.." />;
   }
